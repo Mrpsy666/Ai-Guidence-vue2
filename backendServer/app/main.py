@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import chat, disease, fastDiagnosis
+from routes import chat, disease, fastDiagnosis, appointment
 
 app = FastAPI(title="智能导诊和疾病自查 API")
 
@@ -22,6 +22,7 @@ app.add_middleware(
 app.include_router(chat.router, prefix="/chat", tags=["智能导诊"])
 app.include_router(disease.router, prefix="/disease", tags=["疾病自查"])
 app.include_router(fastDiagnosis.router, prefix="/fast", tags=['快捷分诊'])
+app.include_router(appointment.router, prefix="/appoint", tags=['预约挂号'])
 
 # 启动应用
 if __name__ == "__main__":

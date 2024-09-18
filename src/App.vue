@@ -8,6 +8,7 @@
             <el-menu-item index="1">智能导诊</el-menu-item>
             <el-menu-item index="2">疾病自查</el-menu-item>
             <el-menu-item index="3">快捷分诊</el-menu-item>
+            <el-menu-item index="4">预约挂号</el-menu-item>
           </el-menu>
         </el-col>
         <el-col :span="20">
@@ -41,6 +42,8 @@ export default {
         this.$router.push('/self-check');
       } else if (key === '3') {
         this.$router.push('/fastDiagnosis');
+      } else if (key === '4') {
+        this.$router.push('/appointment');
       }
     },
   },

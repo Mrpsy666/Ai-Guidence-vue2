@@ -4,6 +4,7 @@ import Diagnosis from './views/AiDiagnosis.vue';  // 智能导诊模块
 import SelfCheck from './views/SelfCheck.vue';  // 疾病自查模块
 import DiseaseDetail from "@/views/DiseaseDetail.vue";
 import FastDiagnosis from "@/views/FastDiagnosis.vue";
+import AppointmentPage from "@/views/AppointmentPage.vue";
 
 
 Vue.use(VueRouter);
@@ -14,6 +15,7 @@ const routes = [
   { path: '/self-check', component: SelfCheck },
   { path: '/disease/:id', component: DiseaseDetail},
   { path: '/fastDiagnosis', component: FastDiagnosis},
+  { path: '/appointment', component: AppointmentPage},
 ];
 
 const router = new VueRouter({
