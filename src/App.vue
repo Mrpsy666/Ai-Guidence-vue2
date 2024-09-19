@@ -37,13 +37,29 @@ export default {
   methods: {
     handleSelect(key) {
       if (key === '1') {
-        this.$router.push('/diagnosis');
+        this.$router.push({ path: '/diagnosis'}).catch((err) =>{
+          if(err.name !== 'NavigationDuplicated'){
+            throw err;
+          }
+        });
       } else if (key === '2') {
-        this.$router.push('/self-check');
+        this.$router.push({ path: '/self-check'}).catch((err) =>{
+          if(err.name !== 'NavigationDuplicated'){
+            throw err;
+          }
+        });
       } else if (key === '3') {
-        this.$router.push('/fastDiagnosis');
+        this.$router.push({ path: '/fastDiagnosis'}).catch((err) =>{
+          if(err.name !== 'NavigationDuplicated'){
+            throw err;
+          }
+        });
       } else if (key === '4') {
-        this.$router.push('/appointment');
+        this.$router.push({ path: '/appointment'}).catch((err) =>{
+          if(err.name !== 'NavigationDuplicated'){
+            throw err;
+          }
+        });
       }
     },
   },
