@@ -60,12 +60,12 @@ export default {
   },
   methods: {
     getDoctorInfo(doctorId) {
-      this.$axios.get(`/api/doctor/${doctorId}`).then(response => {
+      this.$axios.get(`/appoint/doctor/${doctorId}`).then(response => {
         this.doctor = response.data;
       });
     },
     submitAppointment() {
-      this.$axios.post('/api/appointments', this.form).then((response) => {
+      this.$axios.post('/appoint/appointments', this.form).then((response) => {
         this.appointmentSuccess = response.data.success;
         this.dialogVisible = true;
       }).catch((error) => {

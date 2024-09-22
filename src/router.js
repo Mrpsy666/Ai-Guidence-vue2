@@ -8,6 +8,8 @@ import AppointmentPage from "@/views/AppointmentPage.vue";
 import DoctorDetails from "@/views/DoctorDetails.vue";
 import SearchDepartment from "@/views/SearchDepartment.vue";
 import SearchDoctor from "@/views/SearchDoctor.vue";
+import AppointPage from "@/views/AppointPage.vue";
+import DepartmentDetail from "@/views/DepartmentDetail.vue";
 
 Vue.use(VueRouter);
 
@@ -20,7 +22,9 @@ const routes = [
   { path: '/appointment', component: AppointmentPage},
   { path:'/search-doctor', component: SearchDoctor},
   { path: '/search-department', component: SearchDepartment},
-  { path: '/doctor/:id', component: DoctorDetails}
+  { path: '/doctor/:id', component: DoctorDetails},
+  { path: '/appoint-doctor/:id', component: AppointPage},
+  { path: '/department/:id', component: DepartmentDetail},
 ];
 
 const router = new VueRouter({

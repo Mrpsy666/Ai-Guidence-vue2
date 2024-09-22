@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -28,7 +29,7 @@ export default {
   },
   methods: {
     getDoctors() {
-      this.$axios.get('/api/doctors').then(response => {
+      this.$axios.get('/appoint/doctors').then(response => {
         this.doctors = response.data;
         this.filteredDoctors = this.doctors;
       });
