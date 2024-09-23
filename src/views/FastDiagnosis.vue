@@ -31,7 +31,6 @@
               <el-checkbox label="胸闷">胸闷</el-checkbox>
               <el-checkbox label="乏力">乏力</el-checkbox>
               <el-checkbox label="浮肿">浮肿</el-checkbox>
-              <el-checkbox label="头晕">头晕</el-checkbox>
               <el-checkbox label="耳鸣">耳鸣</el-checkbox>
               <el-checkbox label="骨折">骨折</el-checkbox>
               <el-checkbox label="关节疼痛">关节疼痛</el-checkbox>

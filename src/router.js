@@ -10,6 +10,7 @@ import SearchDepartment from "@/views/SearchDepartment.vue";
 import SearchDoctor from "@/views/SearchDoctor.vue";
 import AppointPage from "@/views/AppointPage.vue";
 import DepartmentDetail from "@/views/DepartmentDetail.vue";
+import AboutMyself from "@/views/AboutMyself.vue";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,7 @@ const routes = [
   { path: '/doctor/:id', component: DoctorDetails},
   { path: '/appoint-doctor/:id', component: AppointPage},
   { path: '/department/:id', component: DepartmentDetail},
+  { path: '/myself', component: AboutMyself}
 ];
 
 const router = new VueRouter({

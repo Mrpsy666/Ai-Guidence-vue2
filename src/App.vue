@@ -9,6 +9,7 @@
             <el-menu-item index="2">疾病自查</el-menu-item>
             <el-menu-item index="3">快捷分诊</el-menu-item>
             <el-menu-item index="4">预约挂号</el-menu-item>
+            <el-menu-item index="5">关于我的</el-menu-item>
           </el-menu>
         </el-col>
         <el-col :span="20">
@@ -57,6 +58,12 @@ export default {
       } else if (key === '4') {
         this.$router.push({ path: '/appointment'}).catch((err) =>{
           if(err.name !== 'NavigationDuplicated'){
+            throw err;
+          }
+        });
+      } else if (key === '5'){
+        this.$router.push({ path: '/myself'}).catch((err) =>{
+          if(err.name != 'NavigationDuplicated'){
             throw err;
           }
         });
