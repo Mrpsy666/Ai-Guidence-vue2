@@ -3,7 +3,12 @@
     <h2>预约医生：{{ doctor.name }}</h2>
     <el-form :model="form" label-width="120px">
       <el-form-item label="选择日期">
-        <el-date-picker v-model="form.date" type="date" placeholder="选择预约日期"></el-date-picker>
+        <el-date-picker
+            v-model="form.date"
+            type="date"
+            placeholder="选择预约日期"
+            value-format="yyyy-MM-dd"
+        ></el-date-picker>
       </el-form-item>
 
       <el-form-item label="选择时间段">
@@ -26,14 +31,14 @@
       </el-form-item>
     </el-form>
 
-    <!-- 预约结果反馈 -->
     <el-dialog :visible.sync="dialogVisible" title="预约结果">
-      <p v-if="appointmentSuccess">预约成功！</p>
-      <p v-else>预约失败，请稍后再试。</p>
+      <p>预约成功！</p>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">确认</el-button>
       </span>
     </el-dialog>
+
+
   </div>
 </template>
 
@@ -65,16 +70,17 @@ export default {
       });
     },
     submitAppointment() {
-      this.$axios.post('/appoint/appointments', this.form).then((response) => {
-        this.appointmentSuccess = response.data.success;
-        this.dialogVisible = true;
-      }).catch((error) => {
-        console.error(error);
-        this.appointmentSuccess = false;
-        this.dialogVisible = true;
-      });
-    }
+      // 将 doctorId 转换为整数类型，确保一致性
+      this.form.doctorId = Number(this.form.doctorId);
+
+      // 将预约信息存储到 Vuex store 中
+      this.$store.dispatch('addAppointment', this.form);
+
+      // 标记预约成功并显示对话框
+      this.appointmentSuccess = true;
+      this.dialogVisible = true;
   }
+}
 }
 </script>
 

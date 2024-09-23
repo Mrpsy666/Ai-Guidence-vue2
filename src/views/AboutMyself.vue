@@ -51,41 +51,19 @@
 export default {
   data() {
     return {
-      // 个人信息模拟数据
-      userInfo: {
-        name: '张三',
-        age: 29,
-        gender: '男',
-        phone: '13812345678',
-        email: 'zhangsan@example.com',
-      },
-      // 已预约信息模拟数据
-      appointments: [
-        {
-          doctor: '李医生',
-          date: '2024-09-26',
-          timeSlot: '上午',
-          department: '心内科',
-          status: '已确认',
-        },
-        {
-          doctor: '王医生',
-          date: '2024-10-01',
-          timeSlot: '下午',
-          department: '皮肤科',
-          status: '待确认',
-        },
-        {
-          doctor: '赵医生',
-          date: '2024-10-05',
-          timeSlot: '上午',
-          department: '骨科',
-          status: '已确认',
-        },
-      ],
       dialogVisible: false,  // 控制弹窗显示
       appointmentToCancel: null,  // 需要取消的预约
     };
+  },
+  computed: {
+    // 从 Vuex 中获取用户信息
+    userInfo() {
+      return this.$store.getters.getUserInfo;
+    },
+    // 从 Vuex 中获取预约信息
+    appointments() {
+      return this.$store.getters.getAppointments;
+    }
   },
   methods: {
     // 用户点击取消预约时，弹出确认框
@@ -95,9 +73,7 @@ export default {
     },
     // 确认取消操作
     confirmCancel() {
-      this.appointments = this.appointments.filter(
-        (item) => item !== this.appointmentToCancel
-      );
+      this.$store.dispatch('cancelAppointment', this.appointmentToCancel);  // 通过 Vuex 进行取消
       this.dialogVisible = false;  // 关闭弹窗
       this.appointmentToCancel = null;  // 重置状态
     },
