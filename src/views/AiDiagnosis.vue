@@ -1,14 +1,15 @@
 <template>
   <div>
-    <el-container>
-      <el-main>
+    <el-container style="display: flex; justify-content: space-between;">
+      <el-main style="flex: 2; margin-right: 20px;">
         <ChatWindow :messages="messages" />
         <InputArea @sendMessage="sendMessage" />
       </el-main>
-      <el-aside width="300px">
-        <AiRecommendation :recommendation="recommendation" />
-      </el-aside>
-    </el-container>
+      <el-aside width="300px" style="flex: 1;">
+      <AiRecommendation :recommendation="recommendation" />
+    </el-aside>
+</el-container>
+
   </div>
 </template>
 
@@ -90,16 +91,52 @@ export default {
 </script>
 
 <style scoped>
-
 el-container {
   margin: 20px;
   padding: 20px;
+  background-color: #f7f7f7; /* 增加页面整体的背景色 */
 }
 
 el-main {
-  background-color: #f5f5f5;
+  background-color: #ffffff; /* 白色背景让聊天窗口看起来更干净 */
+  padding: 20px;
+  border-radius: 10px; /* 圆角边框 */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+
+el-aside {
+  background-color: #fafafa;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
+
+button {
+  background-color: #409EFF; /* 按钮使用更鲜艳的颜色 */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #66b1ff; /* 悬停效果 */
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 80%;
+  margin-right: 10px;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 </style>
