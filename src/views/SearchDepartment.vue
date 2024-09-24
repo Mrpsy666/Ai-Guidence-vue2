@@ -5,7 +5,7 @@
         v-for="dept in departments"
         :key="dept.id"
         class="department-card"
-        @click="goToDepartmentDetails(dept.id)"gi
+        @click="goToDepartmentDetails(dept.id)"
       >
         <div class="department-name">{{ dept.name }}</div>
       </div>
