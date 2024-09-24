@@ -95,7 +95,7 @@ export default {
         this.recommendations = [];
         return;
       }
-
+      console.log(this.selectedSymptoms);
       // 模拟后端请求，返回多个科室推荐
       this.$axios.post('/fast/recommend', { symptoms: this.selectedSymptoms }).then(res => {
         this.recommendations = res.data.departments;  // 接收多个科室

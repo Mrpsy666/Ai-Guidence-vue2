@@ -6,8 +6,9 @@
         <InputArea @sendMessage="sendMessage" />
       </el-main>
       <el-aside width="300px" style="flex: 1;">
-      <AiRecommendation :recommendation="recommendation" />
-    </el-aside>
+        <AiRecommendation :recommendations="recommendations" />
+        <el-button type="primary" @click="getRecommendation">分析科室</el-button>
+      </el-aside>
 </el-container>
 
   </div>
@@ -27,8 +28,9 @@ export default {
   data() {
     return {
       messages: [],          // 聊天记录
-      recommendation: null, // 科室推荐结果
+      recommendations: [], // 科室推荐结果
       sessionId: null,      // 会话 ID
+      selectedSymptoms: ['头晕','咳嗽'],
     };
   },
   methods: {
@@ -55,7 +57,7 @@ export default {
         }
 
         // 发送后端API请求
-        const response = await this.$axios.post('http://localhost:8000/chat/chat', payload);
+        const response = await this.$axios.post('/chat/chat', payload);
 
         // 移除加载消息
         this.messages.pop();
@@ -86,6 +88,14 @@ export default {
         });
       }
     },
+    async getRecommendation() {
+      this.$axios.post('/fast/recommend', {symptoms: this.selectedSymptoms}).then(res => {
+        this.recommendations = res.data.departments;
+      }).catch(err => {
+        console.log(err);
+        this.recommendations = [];
+      })
+    }
   },
 };
 </script>

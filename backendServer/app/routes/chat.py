@@ -52,6 +52,10 @@ class ChatResponse(BaseModel):
     response: str  # 模型生成的响应
     time_taken: float  # 模型响应时间
 
+class RecommendResponse(BaseModel):
+    department: str
+    advice: str
+
 # 聊天接口，处理智能导诊请求
 @router.post("/chat", response_model=ChatResponse)
 def chat_endpoint(request: ChatRequest):
@@ -77,6 +81,14 @@ def chat_endpoint(request: ChatRequest):
         session_id=session_id,
         response=response,
         time_taken=round(elapsed_time, 2)
+    )
+
+
+@router.get("/getRecommend", response_model=RecommendResponse)
+def recommend_response():
+    return RecommendResponse(
+        department="心脏内科",
+        advice = "请尽早处理"
     )
 
 # 清理会话接口
