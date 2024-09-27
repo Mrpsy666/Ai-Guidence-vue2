@@ -65,10 +65,11 @@ def chat_endpoint(request: ChatRequest):
     # 创建新的会话
     if not session_id:
         session_id = str(uuid.uuid4())
-        sessions[session_id] = []
+        sessions[session_id] =[('我要去医院看病，但是不知道挂什么科，请你作为一个医生询问我几个问题来了解我的病情', '当然可以。接下去我会问你几个问题以了解你的病症')]
+
 
     history = sessions.get(session_id, [])
-
+    print(history)
     try:
         response, updated_history, elapsed_time = chat_with_timing(model, tokenizer, prompt, history)
     except Exception as e:
@@ -79,7 +80,7 @@ def chat_endpoint(request: ChatRequest):
 
     return ChatResponse(
         session_id=session_id,
-        response=response,
+        response=response,c
         time_taken=round(elapsed_time, 2)
     )
 
