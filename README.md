@@ -1,6 +1,7 @@
-# ai-guidence-vue2
+# 智能导诊系统
 
-## Project setup
+
+## Frontend Project
 ```
 npm install
 ```
@@ -22,3 +23,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Backend Project
+```
+python backendServer/app/main.py
+```

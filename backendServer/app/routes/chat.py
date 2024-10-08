@@ -80,7 +80,7 @@ def chat_endpoint(request: ChatRequest):
 
     return ChatResponse(
         session_id=session_id,
-        response=response,c
+        response=response,
         time_taken=round(elapsed_time, 2)
     )
 
