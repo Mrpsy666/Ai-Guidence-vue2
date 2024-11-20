@@ -1,5 +1,5 @@
 # 智能导诊系统
-
+### 前后端全栈项目，vue + fastAPI，感兴趣可以自行下载练习，功能逻辑简单，后端下载大模型后便可以启动。
 
 ## Frontend Project
 ```
@@ -15,14 +15,6 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Backend Project
 ```
